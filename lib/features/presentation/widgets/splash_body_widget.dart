@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/constants/constant_images.dart';
+import 'package:bookly_app/core/constants/strings.dart';
 import 'package:bookly_app/features/presentation/views/home_view.dart';
 import 'package:bookly_app/features/presentation/widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +20,7 @@ class _SplashBodyState extends State<SplashBody>
   void initState() {
     super.initState();
     initSlidingAnimmation();
-    Future.delayed(const Duration(seconds: 3), () {
-      Get.to(() => const HomeView(), transition: Transition.rightToLeft);
-    });
+    navigateToHome();
   }
 
   void initSlidingAnimmation() {
@@ -35,6 +34,7 @@ class _SplashBodyState extends State<SplashBody>
     ).animate(animationController);
     animationController.forward();
   }
+
   @override
   void dispose() {
     animationController.dispose();
@@ -53,3 +53,12 @@ class _SplashBodyState extends State<SplashBody>
     );
   }
 }
+  void navigateToHome() {
+    Future.delayed(const Duration(seconds: 3), () {
+      Get.to(
+        () => const HomeView(),
+        transition: Transition.rightToLeft,
+        duration: kSplashDuration,
+      );
+    });
+  }
