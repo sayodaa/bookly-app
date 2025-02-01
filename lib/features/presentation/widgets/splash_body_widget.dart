@@ -1,6 +1,8 @@
 import 'package:bookly_app/core/constants/constant_images.dart';
+import 'package:bookly_app/features/presentation/views/home_view.dart';
 import 'package:bookly_app/features/presentation/widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashBody extends StatefulWidget {
   const SplashBody({super.key});
@@ -16,6 +18,13 @@ class _SplashBodyState extends State<SplashBody>
   @override
   void initState() {
     super.initState();
+    initSlidingAnimmation();
+    Future.delayed(const Duration(seconds: 3), () {
+      Get.to(() => const HomeView(), transition: Transition.rightToLeft);
+    });
+  }
+
+  void initSlidingAnimmation() {
     animationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 3),
@@ -25,6 +34,11 @@ class _SplashBodyState extends State<SplashBody>
       end: Offset.zero,
     ).animate(animationController);
     animationController.forward();
+  }
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
   }
 
   @override
