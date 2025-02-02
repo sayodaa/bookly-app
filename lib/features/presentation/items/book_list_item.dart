@@ -1,4 +1,4 @@
-import 'package:bookly_app/core/constants/constant_images.dart';
+import 'package:bookly_app/core/utils/constant_images.dart';
 import 'package:flutter/material.dart';
 
 class BookListItem extends StatelessWidget {

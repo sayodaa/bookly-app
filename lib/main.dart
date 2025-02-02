@@ -1,7 +1,8 @@
-import 'package:bookly_app/core/constants/colors.dart';
+import 'package:bookly_app/core/utils/colors.dart';
 import 'package:bookly_app/features/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   return runApp(const BooklyApp());
@@ -17,6 +18,7 @@ class BooklyApp extends StatelessWidget {
       title: 'Bookly App',
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: AppColors.backgroundColor,
+        textTheme: GoogleFonts.boogalooTextTheme(ThemeData.dark().textTheme),
       ),
       home: SplashView(),
     );
