@@ -7,14 +7,12 @@ class BookListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 180,
+      width: MediaQuery.of(context).size.width * 0.42,
       child: AspectRatio(
-        aspectRatio: 2.7 / 4,
+        aspectRatio: 2/4,
         child: Container(
-          clipBehavior: Clip.antiAlias,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: Colors.red,
           ),
           child: Image.asset(AssetsImages.testImage),
         ),
