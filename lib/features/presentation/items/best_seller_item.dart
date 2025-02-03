@@ -1,5 +1,5 @@
 import 'package:bookly_app/core/utils/constant_images.dart';
-import 'package:bookly_app/core/utils/styls.dart';
+import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerItem extends StatelessWidget {
@@ -17,7 +17,10 @@ class BestSellerItem extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Image.asset(AssetsImages.testImage),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Image.asset(AssetsImages.testImage),
+              ),
             ),
           ),
         ),
@@ -27,10 +30,14 @@ class BestSellerItem extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              '''Harry Potter 
-and the sorcerer's stone''',
-              style: Styles.textStyle18,
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.5,
+              child: Text(
+                'Harry Potter and the sorcerer\'s stone',
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: Styles.textStyle18,
+              ),
             ),
             Text(
               'J.K. Rowling',
@@ -40,10 +47,13 @@ and the sorcerer's stone''',
               children: [
                 Text(
                   '19.99 \$',
-                  style: Styles.textStyle20,
+                  style: Styles.textStyle25,
                 ),
+                 Text(
+                  '             ⭐4.8',style: Styles.textStyle18,
+                 ),
                 Text(
-                  '     ⭐(2390)',
+                  '(2390)',
                   style: Styles.textStyle14
                       .copyWith(fontWeight: FontWeight.normal),
                 ),
