@@ -35,14 +35,14 @@ class BestSellerItem extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.5,
                 child: Text(
-                  'Harry Potter and the sorcerer\'s stone',
+                  'تفسير القرأن العظيم لابن كثير في القران الكريم',
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: Styles.textStyle18,
                 ),
               ),
               Text(
-                'J.K. Rowling',
+                'الامام ابن كثير',
                 style: Styles.textStyle14,
               ),
               Row(
