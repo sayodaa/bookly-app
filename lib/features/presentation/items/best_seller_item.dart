@@ -1,5 +1,6 @@
 import 'package:bookly_app/core/utils/constant_images.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/presentation/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerItem extends StatelessWidget {
@@ -27,39 +28,35 @@ class BestSellerItem extends StatelessWidget {
         SizedBox(
           width: 20,
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.5,
-              child: Text(
-                'Harry Potter and the sorcerer\'s stone',
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: Styles.textStyle18,
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.5,
+                child: Text(
+                  'Harry Potter and the sorcerer\'s stone',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: Styles.textStyle18,
+                ),
               ),
-            ),
-            Text(
-              'J.K. Rowling',
-              style: Styles.textStyle14,
-            ),
-            Row(
-              children: [
-                Text(
-                  '19.99 \$',
-                  style: Styles.textStyle25,
-                ),
-                 Text(
-                  '             ⭐4.8',style: Styles.textStyle18,
-                 ),
-                Text(
-                  '(2390)',
-                  style: Styles.textStyle14
-                      .copyWith(fontWeight: FontWeight.normal),
-                ),
-              ],
-            ),
-          ],
+              Text(
+                'J.K. Rowling',
+                style: Styles.textStyle14,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '19.99 \$',
+                    style: Styles.textStyle25,
+                  ),
+                  BookRating()
+                ],
+              ),
+            ],
+          ),
         )
       ],
     );
