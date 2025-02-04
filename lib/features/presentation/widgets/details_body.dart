@@ -16,7 +16,7 @@ class DetailsBody extends StatelessWidget {
         slivers: [
           SliverFillRemaining(
             hasScrollBody: false,
-          child: Padding(
+            child: Padding(
               padding: EdgeInsets.symmetric(
                   horizontal: MediaQuery.of(context).size.width * 0.01),
               child: Column(

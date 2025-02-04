@@ -13,7 +13,9 @@ class ListOfItems extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: BookListItem(widthSize: MediaQuery.of(context).size.width * 0.42,),
+            child: BookListItem(
+              widthSize: MediaQuery.of(context).size.width * 0.42,
+            ),
           );
         },
         itemCount: 10,

@@ -16,8 +16,7 @@ class CustomDetailsAppBar extends StatelessWidget {
             Icons.close_rounded,
           ),
         ),
-        IconButton(
-            onPressed: () {}, icon: Icon(Icons.shopping_cart))
+        IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart))
       ],
     );
   }
