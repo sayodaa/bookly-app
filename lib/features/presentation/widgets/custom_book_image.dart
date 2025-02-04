@@ -7,7 +7,7 @@ class CustomDetailsImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.37,
+      height: MediaQuery.of(context).size.height * 0.28,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Image.asset(AssetsImages.testImage),
