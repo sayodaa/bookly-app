@@ -17,6 +17,6 @@ final class FeacherdBooksSuccess extends FeacherdBooksState {
 }
 
 final class FeacherdBooksFailure extends FeacherdBooksState {
-  final String message;
-  const FeacherdBooksFailure(this.message);
+  final String errmessage;
+  const FeacherdBooksFailure({required this.errmessage});
 }
