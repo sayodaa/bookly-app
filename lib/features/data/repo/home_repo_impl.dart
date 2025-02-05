@@ -5,7 +5,7 @@ import 'package:bookly_app/features/data/repo/home_repo.dart';
 import 'package:bookly_app/features/data/services/services.dart';
 import 'package:dio/dio.dart';
 
-class HomeRepoImpl extends HomeRepo {
+class HomeRepoImpl implements HomeRepo {
   Services services;
   HomeRepoImpl({
     required this.services,
@@ -37,7 +37,7 @@ class HomeRepoImpl extends HomeRepo {
   }
 
   @override
-   Future<Either<Failuers, List<BookModel>>> fetchFeaturedData() async {
+  Future<Either<Failuers, List<BookModel>>> fetchFeaturedData() async {
     List<BookModel> books = [];
     try {
       services
