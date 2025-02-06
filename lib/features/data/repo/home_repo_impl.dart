@@ -1,8 +1,8 @@
-import 'package:dartz/dartz.dart';
 import 'package:bookly_app/core/errors/failuers.dart';
 import 'package:bookly_app/features/data/models/book_model/book_model.dart';
 import 'package:bookly_app/features/data/repo/home_repo.dart';
 import 'package:bookly_app/features/data/services/services.dart';
+import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 class HomeRepoImpl implements HomeRepo {
@@ -46,9 +46,11 @@ class HomeRepoImpl implements HomeRepo {
       )
           .then(
         (data) {
+/*************  ✨ Codeium Command 🌟  *************/
           for (var item in data['items']) {
-            books.add(item);
+            books.add(BookModel.fromJson(item));
           }
+/******  3041a2b5-79f4-4eba-b895-243941e79e76  *******/
         },
       );
       return Right(books);

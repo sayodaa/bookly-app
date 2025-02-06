@@ -14,6 +14,7 @@ class DetailsListView extends StatelessWidget {
           return Padding(
             padding: EdgeInsets.symmetric(horizontal: 10),
             child: BookListItem(
+              imageUrl: 'https://www.androidcoding.in/wp-content/uploads/flutter_image_picker-1022x1024.png',
               widthSize: MediaQuery.of(context).size.width * 0.24,
             ),
           );

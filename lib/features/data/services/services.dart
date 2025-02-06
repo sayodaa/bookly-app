@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 class Services {
-  static const String _baseUrl = "https://api.itbook.store/1.0/";
+  static const String _baseUrl = "https://www.googleapis.com/books/v1/";
   final Dio _dio;
 
   Services({required Dio dio}) : _dio = dio;
