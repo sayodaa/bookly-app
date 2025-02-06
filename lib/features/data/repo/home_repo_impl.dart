@@ -7,7 +7,7 @@ import 'package:dio/dio.dart';
 
 class HomeRepoImpl implements HomeRepo {
   Services services;
-  HomeRepoImpl({
+  HomeRepoImpl( {
     required this.services,
   });
   @override
