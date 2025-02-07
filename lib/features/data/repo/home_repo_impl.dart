@@ -6,53 +6,28 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 class HomeRepoImpl implements HomeRepo {
-  Services services;
-  HomeRepoImpl( {
-    required this.services,
-  });
+  final Services services;
+  
+  HomeRepoImpl({required this.services});
+
   @override
-  Future<Either<Failuers, List<BookModel>>> fetchNewstBooksData() async {
-    List<BookModel> books = [];
-    try {
-      services
-          .get(
-        endPoint: 'volumes?filtering=free-ebooks&q=programming&sorting=newst',
-      )
-          .then(
-        (data) {
-          for (var item in data['items']) {
-            books.add(item);
-          }
-        },
-      );
-      return Right(books);
-    } catch (e) {
-      // ignore: avoid_print
-      print(e);
-      if (e is DioException) {
-        return Left(ServerFailuers.fromDioError(e));
-      }
-      return Left(ServerFailuers(e.toString()));
-    }
+  Future<Either<Failuers, List<BookModel>>> fetchFeaturedData() {
+    return _fetchBooks('volumes?filtering=free-ebooks&q=programming');
   }
 
   @override
-  Future<Either<Failuers, List<BookModel>>> fetchFeaturedData() async {
-    List<BookModel> books = [];
+  Future<Either<Failuers, List<BookModel>>> fetchNewstBooksData() {
+    return _fetchBooks('volumes?filtering=free-ebooks&q=programming&sorting=newst');
+  }
+
+  Future<Either<Failuers, List<BookModel>>> _fetchBooks(String endPoint) async {
     try {
-      services
-          .get(
-        endPoint: 'volumes?filtering=free-ebooks&q=programming',
-      )
-          .then(
-        (data) {
-/*************  ✨ Codeium Command 🌟  *************/
-          for (var item in data['items']) {
-            books.add(BookModel.fromJson(item));
-          }
-/******  3041a2b5-79f4-4eba-b895-243941e79e76  *******/
-        },
-      );
+      final data = await services.get(endPoint: endPoint);
+      
+      final List<BookModel> books = (data['items'] as List<dynamic>)
+          .map((item) => BookModel.fromJson(item as Map<String, dynamic>))
+          .toList();
+          
       return Right(books);
     } catch (e) {
       // ignore: avoid_print

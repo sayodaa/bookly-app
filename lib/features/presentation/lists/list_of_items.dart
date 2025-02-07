@@ -24,7 +24,7 @@ class ListOfItems extends StatelessWidget {
                   ),
                 );
               },
-              itemCount: 10,
+              itemCount: state.books.length,
             ),
           );
         }else if (state is FeacherdBooksFailure) {

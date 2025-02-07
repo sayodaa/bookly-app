@@ -7,8 +7,7 @@ import 'package:bookly_app/features/presentation/widgets/details_list_view.dart'
 import 'package:flutter/material.dart';
 
 class DetailsBody extends StatelessWidget {
-  const DetailsBody({super.key});
-
+  const DetailsBody({super.key,});
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -44,7 +43,8 @@ class DetailsBody extends StatelessWidget {
                     height: 10,
                   ),
                   const BookRating(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    index: 4,
+                    mainAxisAlignment: MainAxisAlignment.center, rate: 4,
                   ),
                   const SizedBox(
                     height: 15,

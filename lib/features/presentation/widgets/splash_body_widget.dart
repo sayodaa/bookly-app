@@ -55,9 +55,8 @@ class _SplashBodyState extends State<SplashBody>
     Future.delayed(
       const Duration(seconds: 3),
       () {
-        if (mounted) {
-          GoRouter.of(context).push('/homeView');
-        }
+        if (!context.mounted) return;
+        context.push('/homeView');
       },
     );
   }

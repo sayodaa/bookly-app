@@ -1,13 +1,17 @@
 import 'package:bookly_app/core/utils/app_route.dart';
-import 'package:bookly_app/core/utils/constant_images.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/data/models/book_model/book_model.dart';
 import 'package:bookly_app/features/presentation/widgets/book_rating.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BestSellerItem extends StatelessWidget {
-  const BestSellerItem({super.key});
-
+  const BestSellerItem({
+    super.key,
+    required this.book,
+  });
+  final BookModel book;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -27,7 +31,12 @@ class BestSellerItem extends StatelessWidget {
                   ),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 10),
-                    child: Image.asset(AssetsImages.testImage),
+                    child: CachedNetworkImage(
+                      imageUrl: book.volumeInfo.imageLinks.thumbnail,
+                      placeholder: (context, url) =>
+                          Center(child: CircularProgressIndicator()),
+                      errorWidget: (context, url, error) => Icon(Icons.error),
+                    ),
                   ),
                 ),
               ),
@@ -42,24 +51,27 @@ class BestSellerItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
                     child: Text(
-                      'تفسير القرأن العظيم لابن كثير في القران الكريم',
+                      book.volumeInfo.title!,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.textStyle18,
                     ),
                   ),
                   Text(
-                    'الامام ابن كثير',
+                    book.volumeInfo.categories![0],
                     style: Styles.textStyle14,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '19.99 \$',
+                        'Free',
                         style: Styles.textStyle25,
                       ),
-                      BookRating()
+                      BookRating(
+                        rate: book.volumeInfo.pageCount!,
+                        index: book.volumeInfo.pageCount!,
+                      )
                     ],
                   ),
                 ],
