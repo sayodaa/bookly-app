@@ -12,7 +12,7 @@ class HomeRepoImpl implements HomeRepo {
 
   @override
   Future<Either<Failuers, List<BookModel>>> fetchFeaturedData() {
-    return _fetchBooks('volumes?filtering=free-ebooks&q=programming');
+    return _fetchBooks('volumes?filtering=free-ebooks&q=cmputer science');
   }
 
   @override
@@ -37,5 +37,10 @@ class HomeRepoImpl implements HomeRepo {
       }
       return Left(ServerFailuers(e.toString()));
     }
+  }
+  
+  @override
+  Future<Either<Failuers, List<BookModel>>> fetchSimellerBooksData({required String category}) {
+   return _fetchBooks('volumes?filtering=free-ebooks&q=cmputer science&sorting=relevance');
   }
 }

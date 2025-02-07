@@ -1,7 +1,6 @@
 import 'package:bookly_app/core/utils/app_route.dart';
 import 'package:bookly_app/core/utils/colors.dart';
 import 'package:bookly_app/core/utils/services_loctor.dart';
-import 'package:bookly_app/features/data/models/book_model/book_model.dart';
 import 'package:bookly_app/features/data/repo/home_repo_impl.dart';
 import 'package:bookly_app/features/logic/featured%20books/feacherd_books_cubit.dart';
 import 'package:bookly_app/features/logic/newst/newst_cubit.dart';
