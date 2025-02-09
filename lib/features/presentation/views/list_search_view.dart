@@ -1,5 +1,5 @@
 import 'package:bookly_app/features/logic/newst/newst_cubit.dart';
-import 'package:bookly_app/features/presentation/items/best_seller_item.dart';
+import 'package:bookly_app/features/presentation/widgets/best_seller_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

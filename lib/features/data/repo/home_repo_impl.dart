@@ -43,4 +43,9 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failuers, List<BookModel>>> fetchSimellerBooksData({required String category}) {
    return _fetchBooks('volumes?filtering=free-ebooks&q=cmputer science&sorting=relevance');
   }
+  
+  @override
+  Future<Either<Failuers, List<BookModel>>> searchBooks({required String query}) {
+    return _fetchBooks('volumes?filtering=free-ebooks&q=$query');
+  }
 }
