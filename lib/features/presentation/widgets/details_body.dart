@@ -78,6 +78,7 @@ class DetailsBody extends StatelessWidget {
                           child: CustomTextButton(
                             onPressed: () {
                               launchCustomUrl(
+                                context: context,
                                 urlString: bookModel.volumeInfo.infoLink!,
                               );
                             },
