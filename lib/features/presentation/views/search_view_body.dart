@@ -1,6 +1,6 @@
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/features/customs/custtom_search.dart';
-import 'package:bookly_app/features/presentation/views/best_seller_list.dart';
+import 'package:bookly_app/features/presentation/views/list_search_view.dart';
 import 'package:flutter/material.dart';
 
 class SearchViewBody extends StatelessWidget {
@@ -16,7 +16,7 @@ class SearchViewBody extends StatelessWidget {
           padding: EdgeInsets.all(10.0),
           child: Text('Search result', style: Styles.textStyle18),
         )),
-        const BestSellerListView(),
+        const ListSearchView(),
       ]),
     );
   }
