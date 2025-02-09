@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/core/utils/url_luncher.dart';
 import 'package:bookly_app/features/customs/custom_details_appbar.dart';
 import 'package:bookly_app/features/customs/custom_text_button.dart';
 import 'package:bookly_app/features/data/models/book_model/book_model.dart';
@@ -8,7 +9,10 @@ import 'package:bookly_app/features/presentation/widgets/details_list_view.dart'
 import 'package:flutter/material.dart';
 
 class DetailsBody extends StatelessWidget {
-  const DetailsBody({super.key, required this.bookModel,});
+  const DetailsBody({
+    super.key,
+    required this.bookModel,
+  });
   final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
@@ -24,11 +28,13 @@ class DetailsBody extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const CustomDetailsAppBar(),
-                   CustomDetailsImage(imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,),
+                  CustomDetailsImage(
+                    imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
+                  ),
                   const SizedBox(
                     height: 20,
                   ),
-                   Text(
+                  Text(
                     bookModel.volumeInfo.title!,
                     style: Styles.textStyle18,
                   ),
@@ -44,9 +50,10 @@ class DetailsBody extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                   BookRating(
-                    index: bookModel.volumeInfo.pageCount??0,
-                    mainAxisAlignment: MainAxisAlignment.center, rate: bookModel.volumeInfo.pageCount??0,
+                  BookRating(
+                    index: bookModel.volumeInfo.pageCount ?? 0,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    rate: bookModel.volumeInfo.pageCount ?? 0,
                   ),
                   const SizedBox(
                     height: 15,
@@ -63,11 +70,17 @@ class DetailsBody extends StatelessWidget {
                             bottomLeft: 10,
                             color: Colors.white,
                             textColor: Colors.black,
-                            text:'${bookModel.volumeInfo.pageCount.toString()} \$',
+                            text:
+                                '${bookModel.volumeInfo.pageCount.toString()} \$',
                           ),
                         ),
                         Expanded(
-                          child: const CustomTextButton(
+                          child: CustomTextButton(
+                            onPressed: () {
+                              launchCustomUrl(
+                                urlString: bookModel.volumeInfo.infoLink!,
+                              );
+                            },
                             topRight: 10,
                             bottomRight: 10,
                             color: Colors.deepOrangeAccent,

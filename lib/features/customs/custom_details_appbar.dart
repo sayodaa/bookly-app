@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CustomDetailsAppBar extends StatelessWidget {
   const CustomDetailsAppBar({super.key});
@@ -17,7 +18,15 @@ class CustomDetailsAppBar extends StatelessWidget {
             Icons.close_rounded,
           ),
         ),
-        IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart))
+        IconButton(
+            onPressed: () async {
+              final Uri url =
+                  Uri.parse('https://pub.dev/packages/url_launcher');
+              if (await canLaunchUrl(url)) {
+                await launchUrl(url);
+              }
+            },
+            icon: Icon(Icons.shopping_cart))
       ],
     );
   }
