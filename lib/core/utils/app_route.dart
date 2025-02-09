@@ -27,7 +27,8 @@ abstract class AppRouter {
         path: kDetailsView,
         builder: (context, state) => BlocProvider(
           create: (context) => SimellerBooksCubit(
-            getIt.get<HomeRepoImpl>(),
+            category: state.extra.toString(),
+            getIt.get<HomeRepoImpl>(), books: [],
           ),
           child: DetailsView(
                 bookModel: state.extra as BookModel,

@@ -55,7 +55,6 @@ class _SplashBodyState extends State<SplashBody>
     Future.delayed(
       const Duration(seconds: 3),
       () {
-        if (!context.mounted) return;
         context.push('/homeView');
       },
     );

@@ -1,26 +1,47 @@
+import 'package:bookly_app/core/utils/app_route.dart';
+import 'package:bookly_app/features/logic/cubit/simeller_books_cubit.dart';
 import 'package:bookly_app/features/presentation/items/book_list_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class DetailsListView extends StatelessWidget {
-  const DetailsListView({super.key});
-
+  const DetailsListView({
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.20,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            child: BookListItem(
-              imageUrl: 'https://www.androidcoding.in/wp-content/uploads/flutter_image_picker-1022x1024.png',
-              widthSize: MediaQuery.of(context).size.width * 0.24,
+    return BlocBuilder<SimellerBooksCubit, SimellerBooksState>(
+      builder: (context, state) {
+        if (state is SimellerBooksSuccess) {
+          return SizedBox(
+            height: MediaQuery.of(context).size.height * 0.20,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context)
+                          .push(AppRouter.kDetailsView, extra: state.books[index]);
+                    },
+                    child: BookListItem(
+                      imageUrl: state.books[index].volumeInfo.imageLinks.thumbnail,
+                      widthSize: MediaQuery.of(context).size.width * 0.24,
+                    ),
+                  ),
+                );
+              },
+              itemCount: 10,
             ),
           );
-        },
-        itemCount: 10,
-      ),
+        } else if (state is SimellerBooksFailure) {
+          return Text(state.errmessage);
+        } else {
+          return const Center(child: CircularProgressIndicator());
+        }
+      },
     );
   }
 }

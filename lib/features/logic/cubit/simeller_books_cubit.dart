@@ -6,11 +6,11 @@ import 'package:equatable/equatable.dart';
 part 'simeller_books_state.dart';
 
 class SimellerBooksCubit extends Cubit<SimellerBooksState> {
-  SimellerBooksCubit(this.homeRepo) : super(SimellerBooksInitial());
+  SimellerBooksCubit(this.homeRepo,{required this.books, required String category}) : super(SimellerBooksInitial());
 
   final HomeRepo homeRepo;
 
-  List<BookModel> books = [];
+  List<BookModel> books;
 
   Future<void> fetchSimellerBooksData({required String category}) async {
     emit(SimellerBooksLoading());
