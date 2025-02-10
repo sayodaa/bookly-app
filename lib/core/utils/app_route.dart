@@ -1,6 +1,7 @@
 import 'package:bookly_app/core/utils/services_loctor.dart';
 import 'package:bookly_app/features/data/models/book_model/book_model.dart';
 import 'package:bookly_app/features/data/repo/home_repo_impl.dart';
+import 'package:bookly_app/features/logic/search/searh_cubit.dart';
 import 'package:bookly_app/features/logic/similler/simeller_books_cubit.dart';
 import 'package:bookly_app/features/presentation/views/details_view.dart';
 import 'package:bookly_app/features/presentation/views/home_view.dart';
@@ -28,16 +29,22 @@ abstract class AppRouter {
         builder: (context, state) => BlocProvider(
           create: (context) => SimellerBooksCubit(
             category: state.extra.toString(),
-            getIt.get<HomeRepoImpl>(), books: [],
+            getIt.get<HomeRepoImpl>(),
+            books: [],
           ),
           child: DetailsView(
-                bookModel: state.extra as BookModel,
+            bookModel: state.extra as BookModel,
           ),
         ),
       ),
       GoRoute(
         path: kSearchView,
-        builder: (context, state) => const SearchView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => SearhCubit(
+            homeRepo: getIt.get<HomeRepoImpl>(),
+          ),
+          child: SearchView(),
+        ),
       ),
     ],
   );

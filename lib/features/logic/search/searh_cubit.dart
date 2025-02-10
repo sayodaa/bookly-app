@@ -6,7 +6,7 @@ import 'package:equatable/equatable.dart';
 part 'searh_state.dart';
 
 class SearhCubit extends Cubit<SearhState> {
-  SearhCubit(this.homeRepo) : super(SearhInitial());
+  SearhCubit({required this.homeRepo}) : super(SearhInitial());
   final HomeRepo homeRepo;
   Future<void> searchBooks({required String query}) async {
     emit(SearhLoading(message: 'Searching for $query'));

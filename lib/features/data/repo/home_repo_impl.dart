@@ -7,7 +7,7 @@ import 'package:dio/dio.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final Services services;
-  
+
   HomeRepoImpl({required this.services});
 
   @override
@@ -17,17 +17,31 @@ class HomeRepoImpl implements HomeRepo {
 
   @override
   Future<Either<Failuers, List<BookModel>>> fetchNewstBooksData() {
-    return _fetchBooks('volumes?filtering=free-ebooks&q=programming&sorting=newst');
+    return _fetchBooks(
+        'volumes?filtering=free-ebooks&q=programming&sorting=newst');
+  }
+
+  @override
+  Future<Either<Failuers, List<BookModel>>> fetchSimellerBooksData(
+      {required String category}) {
+    return _fetchBooks(
+        'volumes?filtering=free-ebooks&q=cmputer science&sorting=relevance');
+  }
+
+  @override
+  Future<Either<Failuers, List<BookModel>>> searchBooks(
+      {required String query}) {
+    return _fetchBooks('volumes?filtering=free-ebooks&q=$query');
   }
 
   Future<Either<Failuers, List<BookModel>>> _fetchBooks(String endPoint) async {
     try {
       final data = await services.get(endPoint: endPoint);
-      
+
       final List<BookModel> books = (data['items'] as List<dynamic>)
           .map((item) => BookModel.fromJson(item as Map<String, dynamic>))
           .toList();
-          
+
       return Right(books);
     } catch (e) {
       // ignore: avoid_print
@@ -37,15 +51,5 @@ class HomeRepoImpl implements HomeRepo {
       }
       return Left(ServerFailuers(e.toString()));
     }
-  }
-  
-  @override
-  Future<Either<Failuers, List<BookModel>>> fetchSimellerBooksData({required String category}) {
-   return _fetchBooks('volumes?filtering=free-ebooks&q=cmputer science&sorting=relevance');
-  }
-  
-  @override
-  Future<Either<Failuers, List<BookModel>>> searchBooks({required String query}) {
-    return _fetchBooks('volumes?filtering=free-ebooks&q=$query');
   }
 }

@@ -8,8 +8,6 @@ class Services {
   Future<Map<String, dynamic>> get({required String endPoint}) async {
     try {
       var response = await _dio.get('$_baseUrl$endPoint');
-      // ignore: avoid_print
-      print('Response received: ${response.statusCode}');
       return response.data;
     } catch (e) {
       rethrow;

@@ -1,13 +1,18 @@
+import 'package:bookly_app/features/logic/search/searh_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomSearch extends StatelessWidget {
   const CustomSearch({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: TextField(
+        onSubmitted: (value) {
+          BlocProvider.of<SearhCubit>(context).searchBooks(query: value);
+        },
         decoration: InputDecoration(
             hintText: 'Search',
             hintStyle: const TextStyle(color: Colors.white),
