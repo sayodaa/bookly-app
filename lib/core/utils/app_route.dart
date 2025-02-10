@@ -1,12 +1,12 @@
 import 'package:bookly_app/core/utils/services_loctor.dart';
-import 'package:bookly_app/features/data/models/book_model/book_model.dart';
-import 'package:bookly_app/features/data/repo/home_repo_impl.dart';
-import 'package:bookly_app/features/logic/search/searh_cubit.dart';
-import 'package:bookly_app/features/logic/similler/simeller_books_cubit.dart';
-import 'package:bookly_app/features/presentation/views/details_view.dart';
-import 'package:bookly_app/features/presentation/views/home_view.dart';
-import 'package:bookly_app/features/presentation/views/search_view.dart';
-import 'package:bookly_app/features/presentation/views/splash_view.dart';
+import 'package:bookly_app/core/data/models/book_model/book_model.dart';
+import 'package:bookly_app/core/data/repo/home_repo_impl.dart';
+import 'package:bookly_app/features/search/manager/search/searh_cubit.dart';
+import 'package:bookly_app/features/details/manager/similler/simeller_books_cubit.dart';
+import 'package:bookly_app/features/details/presentation/views/details_view.dart';
+import 'package:bookly_app/features/home/presentation/views/home_view.dart';
+import 'package:bookly_app/features/search/presentation/views/search_view.dart';
+import 'package:bookly_app/features/splash/views/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
