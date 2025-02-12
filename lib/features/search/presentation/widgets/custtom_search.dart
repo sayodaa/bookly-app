@@ -10,7 +10,7 @@ class CustomSearch extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: TextField(
-        onSubmitted: (value) {
+        onChanged: (value) {
           BlocProvider.of<SearhCubit>(context).searchBooks(query: value);
         },
         decoration: InputDecoration(

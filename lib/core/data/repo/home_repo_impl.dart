@@ -1,7 +1,7 @@
-import 'package:bookly_app/core/errors/failuers.dart';
 import 'package:bookly_app/core/data/models/book_model/book_model.dart';
 import 'package:bookly_app/core/data/repo/home_repo.dart';
 import 'package:bookly_app/core/data/services/services.dart';
+import 'package:bookly_app/core/errors/failuers.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
@@ -9,24 +9,57 @@ class HomeRepoImpl implements HomeRepo {
   final Services services;
 
   HomeRepoImpl({required this.services});
+  List<BookModel> cartBooks = [];
 
   @override
   Future<Either<Failuers, List<BookModel>>> fetchFeaturedData() {
-    return _fetchBooks('volumes?filtering=free-ebooks&q=cmputer science');
+    return _fetchBooks('volumes?filtering=free-ebooks&q=computer science');
   }
 
   @override
   Future<Either<Failuers, List<BookModel>>> fetchNewstBooksData() {
     return _fetchBooks(
-        'volumes?filtering=free-ebooks&q=programming&sorting=newst');
+        'volumes?filtering=free-ebooks&q=programming&sorting=newest');
   }
 
   @override
   Future<Either<Failuers, List<BookModel>>> fetchSimellerBooksData(
       {required String category}) {
     return _fetchBooks(
-        'volumes?filtering=free-ebooks&q=cmputer science&sorting=relevance');
+        'volumes?filtering=free-ebooks&q=computer science&sorting=relevance');
   }
+  @override
+  Future<Either<Failuers, List<BookModel>>> fetchCartItems() {
+    return _fetchBooks('volumes?filtering=free-ebooks&q=computer science');
+  }
+ @override
+Future<Either<Failuers, void>> addToCart(BookModel book) async {
+  try {
+    await Future.delayed(const Duration(milliseconds: 500));
+    // نفترض إنك عندك قائمة cartBooks فيها الكتب الموجودة في السلة
+    cartBooks.add(book);
+    return const Right(null);
+  } catch (e) {
+    if (e is DioException) {
+      return Left(ServerFailuers.fromDioError(e));
+    }
+    return Left(ServerFailuers(e.toString()));
+  }
+}
+@override
+Future<Either<Failuers, void>> removeFromCart(BookModel book) async {
+  try {
+    await Future.delayed(const Duration(milliseconds: 500));
+    // نفترض إنك عندك قائمة cartBooks فيها الكتب الموجودة في السلة
+    cartBooks.remove(book);
+    return const Right(null);
+  } catch (e) {
+    if (e is DioException) {
+      return Left(ServerFailuers.fromDioError(e));
+    }
+    return Left(ServerFailuers(e.toString()));
+  }
+}
 
   @override
   Future<Either<Failuers, List<BookModel>>> searchBooks(

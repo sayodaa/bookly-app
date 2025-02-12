@@ -1,11 +1,12 @@
-import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/core/utils/url_luncher.dart';
-import 'package:bookly_app/core/utils/customs/custom_details_appbar.dart';
-import 'package:bookly_app/core/utils/customs/custom_text_button.dart';
 import 'package:bookly_app/core/data/models/book_model/book_model.dart';
 import 'package:bookly_app/core/utils/book_rating.dart';
 import 'package:bookly_app/core/utils/custom_book_image.dart';
+import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/core/utils/url_luncher.dart';
 import 'package:bookly_app/features/details/presentation/lists/details_list_view.dart';
+import 'package:bookly_app/features/details/presentation/widgets/custom_details_appbar.dart';
+import 'package:bookly_app/features/details/presentation/widgets/custom_dialog.dart';
+import 'package:bookly_app/features/details/presentation/widgets/custom_text_button.dart';
 import 'package:flutter/material.dart';
 
 class DetailsBody extends StatelessWidget {
@@ -91,6 +92,16 @@ class DetailsBody extends StatelessWidget {
                           ),
                         )
                       ],
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      showCustomDialog(context, bookModel);
+                    },
+                    icon: const Icon(
+                      Icons.add_shopping_cart,
+                      size: 20,
+                      color: Colors.white,
                     ),
                   ),
                   Expanded(

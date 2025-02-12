@@ -1,7 +1,7 @@
-import 'package:bookly_app/core/utils/app_route.dart';
-import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/core/data/models/book_model/book_model.dart';
+import 'package:bookly_app/core/utils/app_route.dart';
 import 'package:bookly_app/core/utils/book_rating.dart';
+import 'package:bookly_app/core/utils/styles.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -51,7 +51,7 @@ class SearchItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
                     child: Text(
-                      book.volumeInfo.title!,
+                      book.volumeInfo.title??'',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.textStyle18,
