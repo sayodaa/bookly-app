@@ -1,5 +1,5 @@
-import 'package:bookly_app/core/data/repo/home_repo_impl.dart';
-import 'package:bookly_app/core/data/services/services.dart';
+import '../data/repo/home_repo_impl.dart';
+import '../data/services/services.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 

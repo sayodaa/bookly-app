@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:bookly_app/core/data/models/book_model/book_model.dart';
-import 'package:bookly_app/core/data/repo/home_repo.dart';
+import '../../../../core/data/models/book_model/book_model.dart';
+import '../../../../core/data/repo/home_repo.dart';
 import 'package:equatable/equatable.dart';
 
 part 'feacherd_books_state.dart';

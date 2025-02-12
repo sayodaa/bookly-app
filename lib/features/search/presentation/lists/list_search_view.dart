@@ -1,5 +1,5 @@
-import 'package:bookly_app/features/search/manager/search/searh_cubit.dart';
-import 'package:bookly_app/features/search/presentation/widgets/search_item.dart';
+import '../../manager/search/searh_cubit.dart';
+import '../widgets/search_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

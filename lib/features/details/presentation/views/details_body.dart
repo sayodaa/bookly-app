@@ -1,12 +1,12 @@
-import 'package:bookly_app/core/data/models/book_model/book_model.dart';
-import 'package:bookly_app/core/utils/book_rating.dart';
-import 'package:bookly_app/core/utils/custom_book_image.dart';
-import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/core/utils/url_luncher.dart';
-import 'package:bookly_app/features/details/presentation/lists/details_list_view.dart';
-import 'package:bookly_app/features/details/presentation/widgets/custom_details_appbar.dart';
-import 'package:bookly_app/features/details/presentation/widgets/custom_dialog.dart';
-import 'package:bookly_app/features/details/presentation/widgets/custom_text_button.dart';
+import '../../../../core/data/models/book_model/book_model.dart';
+import '../../../../core/utils/book_rating.dart';
+import '../../../../core/utils/custom_book_image.dart';
+import '../../../../core/utils/styles.dart';
+import '../../../../core/utils/url_luncher.dart';
+import '../lists/details_list_view.dart';
+import '../widgets/custom_details_appbar.dart';
+import '../widgets/custom_dialog.dart';
+import '../widgets/custom_text_button.dart';
 import 'package:flutter/material.dart';
 
 class DetailsBody extends StatelessWidget {

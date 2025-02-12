@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/cart/presentation/lists/cart_list.dart';
+import '../lists/cart_list.dart';
 import 'package:flutter/material.dart';
 
 class CartView extends StatelessWidget {

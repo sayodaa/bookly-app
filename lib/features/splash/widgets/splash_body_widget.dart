@@ -1,5 +1,5 @@
-import 'package:bookly_app/core/utils/constant_images.dart';
-import 'package:bookly_app/features/splash/widgets/sliding_text.dart';
+import '../../../core/utils/constant_images.dart';
+import 'sliding_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

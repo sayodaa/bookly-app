@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
-import 'package:bookly_app/core/data/models/book_model/book_model.dart';
-import 'package:bookly_app/core/data/repo/home_repo_impl.dart';
+import '../../../../core/data/models/book_model/book_model.dart';
+import '../../../../core/data/repo/home_repo_impl.dart';
 import 'package:equatable/equatable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

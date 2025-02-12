@@ -1,8 +1,8 @@
-import 'package:bookly_app/core/data/models/book_model/book_model.dart';
-import 'package:bookly_app/core/utils/book_rating.dart';
-import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/core/utils/url_luncher.dart';
-import 'package:bookly_app/features/cart/manager/cubit/cart_cubit.dart';
+import '../../../../core/data/models/book_model/book_model.dart';
+import '../../../../core/utils/book_rating.dart';
+import '../../../../core/utils/styles.dart';
+import '../../../../core/utils/url_luncher.dart';
+import '../../manager/cubit/cart_cubit.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

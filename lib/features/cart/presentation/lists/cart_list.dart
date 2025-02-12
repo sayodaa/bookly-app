@@ -1,5 +1,5 @@
-import 'package:bookly_app/features/cart/manager/cubit/cart_cubit.dart';
-import 'package:bookly_app/features/cart/presentation/widgets/cart_Item.dart';
+import '../../manager/cubit/cart_cubit.dart';
+import '../widgets/cart_Item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

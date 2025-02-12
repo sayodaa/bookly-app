@@ -1,6 +1,6 @@
-import 'package:bookly_app/core/utils/app_route.dart';
-import 'package:bookly_app/features/home/manager/featured%20books/feacherd_books_cubit.dart';
-import 'package:bookly_app/features/home/presentation/widgets/book_list_item.dart';
+import '../../../../core/utils/app_route.dart';
+import '../../manager/featured%20books/feacherd_books_cubit.dart';
+import '../widgets/book_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';

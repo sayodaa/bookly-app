@@ -1,5 +1,5 @@
-import 'package:bookly_app/core/utils/app_route.dart';
-import 'package:bookly_app/core/utils/constant_images.dart';
+import '../../../../core/utils/app_route.dart';
+import '../../../../core/utils/constant_images.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
