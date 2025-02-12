@@ -1,5 +1,6 @@
-import '../lists/cart_view_body.dart';
 import 'package:flutter/material.dart';
+
+import '../lists/cart_list.dart';
 
 class CartBody extends StatelessWidget {
   const CartBody({super.key});
@@ -11,7 +12,7 @@ class CartBody extends StatelessWidget {
         children: [
           Text('Cart'),
           Expanded(
-            child: CartViewBody(),
+            child: CartList(),
           ),
         ],
       ),

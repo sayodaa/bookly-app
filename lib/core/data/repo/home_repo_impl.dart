@@ -1,6 +1,6 @@
 import '../models/book_model/book_model.dart';
 import 'home_repo.dart';
-import '../services/services.dart';
+import '../services/service.dart';
 import '../../errors/failuers.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -36,7 +36,6 @@ class HomeRepoImpl implements HomeRepo {
 Future<Either<Failuers, void>> addToCart(BookModel book) async {
   try {
     await Future.delayed(const Duration(milliseconds: 500));
-    // نفترض إنك عندك قائمة cartBooks فيها الكتب الموجودة في السلة
     cartBooks.add(book);
     return const Right(null);
   } catch (e) {
@@ -50,7 +49,6 @@ Future<Either<Failuers, void>> addToCart(BookModel book) async {
 Future<Either<Failuers, void>> removeFromCart(BookModel book) async {
   try {
     await Future.delayed(const Duration(milliseconds: 500));
-    // نفترض إنك عندك قائمة cartBooks فيها الكتب الموجودة في السلة
     cartBooks.remove(book);
     return const Right(null);
   } catch (e) {
@@ -66,7 +64,6 @@ Future<Either<Failuers, void>> removeFromCart(BookModel book) async {
       {required String query}) {
     return _fetchBooks('volumes?filtering=free-ebooks&q=$query');
   }
-
   Future<Either<Failuers, List<BookModel>>> _fetchBooks(String endPoint) async {
     try {
       final data = await services.get(endPoint: endPoint);
@@ -77,8 +74,6 @@ Future<Either<Failuers, void>> removeFromCart(BookModel book) async {
 
       return Right(books);
     } catch (e) {
-      // ignore: avoid_print
-      print(e);
       if (e is DioException) {
         return Left(ServerFailuers.fromDioError(e));
       }
