@@ -3,8 +3,8 @@ import 'package:bookly_app/features/cart/presentation/widgets/cart_Item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CartViewBody extends StatelessWidget {
-  const CartViewBody({super.key});
+class CartList extends StatelessWidget {
+  const CartList({super.key});
 
   @override
   Widget build(BuildContext context) {

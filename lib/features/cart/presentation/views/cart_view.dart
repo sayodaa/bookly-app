@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/cart/presentation/views/cart_view_body.dart';
+import 'package:bookly_app/features/cart/presentation/lists/cart_list.dart';
 import 'package:flutter/material.dart';
 
 class CartView extends StatelessWidget {
@@ -7,7 +7,12 @@ class CartView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
-      body: CartViewBody(),
+      appBar: AppBar(
+        title: Text('Cart'),
+        backgroundColor: Colors.transparent,
+        elevation: 5,
+      ),
+      body: CartList(),
     ));
   }
 }
