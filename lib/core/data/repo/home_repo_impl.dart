@@ -71,7 +71,6 @@ Future<Either<Failuers, void>> removeFromCart(BookModel book) async {
       final List<BookModel> books = (data['items'] as List<dynamic>)
           .map((item) => BookModel.fromJson(item as Map<String, dynamic>))
           .toList();
-
       return Right(books);
     } catch (e) {
       if (e is DioException) {

@@ -40,16 +40,9 @@ void showCustomDialog(BuildContext context, BookModel book) {
           const SizedBox(width: 10),
           ElevatedButton(
             onPressed: () {
-              // ✅ إضافة الكتاب إلى السلة
               BlocProvider.of<CartCubit>(context).addToCart(book);
-
-              // ✅ إغلاق نافذة التأكيد
               Navigator.of(context).pop();
-
-              // ✅ الذهاب إلى صفحة السلة
               GoRouter.of(context).push(AppRouter.kCartView);
-
-              // ✅ إظهار رسالة نجاح
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   content: Text("Book added to cart successfully!"),

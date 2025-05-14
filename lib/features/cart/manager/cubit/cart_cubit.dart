@@ -43,7 +43,6 @@ class CartCubit extends Cubit<CartState> {
       cartItems.add(book);
       emit(CartUpdated(List.from(cartItems)));
       await _saveCartItems();
-
       final result = await homeRepoImpl.addToCart(book);
       result.fold(
         (failure) {

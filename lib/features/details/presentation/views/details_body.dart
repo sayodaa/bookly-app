@@ -96,7 +96,7 @@ class DetailsBody extends StatelessWidget {
                   ),
                   IconButton(
                     onPressed: () {
-                      showCustomDialog(context, bookModel);
+                      showCustomDialog(context,bookModel);
                     },
                     icon: const Icon(
                       Icons.add_shopping_cart,

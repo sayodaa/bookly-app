@@ -1,3 +1,5 @@
+import 'package:bookly_app/core/utils/app_route.dart';
+
 import '../../../core/utils/constant_images.dart';
 import 'sliding_text.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +57,7 @@ class _SplashBodyState extends State<SplashBody>
     Future.delayed(
       const Duration(seconds: 3),
       () {
-        context.push('/homeView');
+      if(mounted) context.pushReplacementNamed(AppRouter.kHomeView);
       },
     );
   }
